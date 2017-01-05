@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 
-namespace TimerDemo
+namespace WebJobUsageDailyTimer
 {
     public class Functions
     {
