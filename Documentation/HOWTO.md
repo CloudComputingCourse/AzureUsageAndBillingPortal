@@ -64,8 +64,8 @@ In addition to the output of the Powershell script (which is enough to run the s
 Now let's update the source code with the above parameters. Open the solution in Visual Studio, you will see the following 5 projects in the solution explorer and need to update the mentioned files in each project:
 
 **Debugging Notes:**
-- 'DefaultConnection-Web.config Connection String' argument cannot be null or empty. VS2013:  
-If this error occurs while publishing the jobs to Azure, consult the following StackOverflow posts [[1]](http://stackoverflow.com/q/28391460), [[2]](http://stackoverflow.com/q/28391460)
+- 'DefaultConnection-Web.config Connection String' argument cannot be null or empty:  
+If this error occurs while publishing the jobs to Azure, consult the following StackOverflow posts [[1]](http://stackoverflow.com/q/28996623), [[2]](http://stackoverflow.com/q/28391460)
 
 **Commons Project:**  
 - Commons.cs file:  
