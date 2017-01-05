@@ -63,6 +63,10 @@ In addition to the output of the Powershell script (which is enough to run the s
 
 Now let's update the source code with the above parameters. Open the solution in Visual Studio, you will see the following 5 projects in the solution explorer and need to update the mentioned files in each project:
 
+**Debugging Notes:**
+- 'DefaultConnection-Web.config Connection String' argument cannot be null or empty. VS2013:  
+If this error occurs while publishing the jobs to Azure, consult the following StackOverflow posts [[1]](http://stackoverflow.com/q/28391460), [[2]](http://stackoverflow.com/q/28391460)
+
 **Commons Project:**  
 - Commons.cs file:  
 Change the following code line in commons.cs file and replace the marked string with your SQL Connection string name (if you changed it in the parameters) that you can find in the ARM script, or in Web app settings on the portal. If you haven't made any change in the source file, then keep them as they are. Below is the screenshot of the code line in the commons.cs file.  
