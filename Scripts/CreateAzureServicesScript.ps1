@@ -21,51 +21,53 @@ $TemplateFileFullPath = $WorkingDir + $TemplateFileName
 
 # If you have more than one subscription, please specify the name of the subscription that you want to use among them.
 # If you are not sure how many subscriptions you have and want to use the default one, than keep it this parameter as $AzureSubscriptionName = ""
-$AzureSubscriptionName = "Visual Studio Ultimate with MSDN"
+$AzureSubscriptionId = "{SUBSCRIPTION ID}"
 
 # identification / version suffix in service names. Probably one another user is using this value too. Make it unique! (i.e. with your initials)
-$suffix = "20"
+$suffix = "v006"
 
 # Azure resource group parameters
-$ResourceGroupName = ("aui-resource-group" + $suffix)
-$ResourceGroupLocation = "Central US"
+$ResourceGroupName = ("cc-aui-resource-group-" + $suffix)
+$ResourceGroupLocation = "East US"
 
 # Storage account parameters
-$StorageAccountName = ("auistorage" + $suffix)
+$StorageAccountName = ("ccauistorage" + $suffix)
 $StorageAccountType = "Standard_LRS"
 $StorageAccountLocation = $ResourceGroupLocation
 
 # AzureSQL Server parameters
 # This will create an AzureSQL Standard S0 instance please review https://azure.microsoft.com/pricing/details/sql-database/ for price details
-$SqlServerName = ("auisqlsr" + $suffix)
+$SqlServerName = ("ccauisqlsr" + $suffix)
 $SqlServerLocation = $ResourceGroupLocation
 $SQLServerVersion = "2.0"
-$SqlAdministratorLogin = "mksa"
-$SqlAdministratorLoginPassword = "Password.1%"
-$SqlDatabaseName = ("auisqldb" + $suffix)
+$SqlAdministratorLogin = "cloudcomputingcheatchecking"
+$SqlAdministratorLoginPassword = "{SQL PASSWORD}"
+$SqlDatabaseName = ("ccauisqldb" + $suffix)
 $sqlEdition = "Standard"
 $sqlRequestedServiceObjectiveName = "S0";
 
 # WebSite parameters
-$Web1SiteName = ("auiregistration" + $suffix)
-$Web2SiteName = ("auidashboard" + $suffix)
-$WebHostingPlanName = ("auihostingplan" + $suffix)
+$Web1SiteName = "cloudcomputingregistrationportal"
+$Web2SiteName = "cloudcomputingauidashboard"
+$WebHostingPlanName = ("cloudcomputingauihostingplan" + $suffix)
 $WebSiteLocation = $ResourceGroupLocation
 # Dont change below parameter. At the time of writing the script, only CentralUS supports Insights service.
-$webSiteInsightsLocation = "Central US"
+$webSiteInsightsLocation = "East US"
 
 
 # Active Directory (AD) Application parameters
 # You have to find and update the AD App with below name on the classic portal
-$displayName1 = ("Azure Usage and Billing Portal (Registration) v" + $suffix)
-$passwordADApp = "Password.1%"
+$displayName1 = ("Azure Usage and Billing Portal (Registration) " + $suffix)
+$passwordADApp = "{AD APPLICATION PASSWORD}"
 
 
 ### 1. Login to Azure Resource Manager service. Credentials will be stored under this session for furthure use
 #############################################################################################
 Login-AzureRmAccount
 
-Get-AzureRmSubscription –SubscriptionName $AzureSubscriptionName | Select-AzureRmSubscription
+Get-AzureRmSubscription –SubscriptionId $AzureSubscriptionId | Select-AzureRmSubscription
+
+Set-AzureRmContext -SubscriptionId $AzureSubscriptionId
 
 ### 2. Create a Resource Group. All resources will be created under this group
 #############################################################################################

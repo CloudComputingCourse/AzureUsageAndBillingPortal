@@ -125,7 +125,7 @@
         "webSiteInsightsLocation": {
         "type": "string",
         "allowedValues": [
-            "Central US"
+            "East US"
         ],
         "metadata": {
             "description": "The location to use for creating the web app application insights."

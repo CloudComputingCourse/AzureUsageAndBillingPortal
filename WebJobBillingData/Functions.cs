@@ -308,7 +308,7 @@ namespace WebJobBillingData
                     //DateTime sdt = DateTime.Now.AddYears(-3);
                     //DateTime edt = DateTime.Now.AddDays(-1);
 
-                    string restURL = AzureResourceManagerUtil.GetBillingRestApiCallURL(br.SubscriptionId, true, true, br.StartDate, br.EndDate);
+                    string restURL = AzureResourceManagerUtil.GetBillingRestApiCallURL(br.SubscriptionId, false, true, br.StartDate, br.EndDate);
 
                     Console.WriteLine("Request usage data from Billing service.");
                     List<UsageRecord> urs = GetUsageDetails(restURL, br.OrganizationId, rateCardInfo);
