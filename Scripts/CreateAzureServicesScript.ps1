@@ -51,9 +51,7 @@ $Web1SiteName = "cloudcomputingregistrationportal"
 $Web2SiteName = "cloudcomputingauidashboard"
 $WebHostingPlanName = ("cloudcomputingauihostingplan" + $suffix)
 $WebSiteLocation = $ResourceGroupLocation
-# Dont change below parameter. At the time of writing the script, only CentralUS supports Insights service.
 $webSiteInsightsLocation = "East US"
-
 
 # Active Directory (AD) Application parameters
 # You have to find and update the AD App with below name on the classic portal
